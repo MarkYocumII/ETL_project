@@ -9,22 +9,22 @@ Mark Yocum and Hubert Cheng ETL Project
 
 #### State abbreviations
 
-Collected the 2-letter abbreviations for states 
+Collected the 2-letter abbreviations for states/n
 https://abbreviations.yourdictionary.com/articles/state-abbrev.html
 
 #### Federal Highway Administration Traffic Volume Data (.CSV files)
 Traffice volume trends were collected from the FHWA.  Data was collected on a monthly report.  Data was collected at approximately 4,000 continuous traffic
-counting locations nationwide. 
+counting locations nationwide./n
 https://www.fhwa.dot.gov/policyinformation/travel_monitoring/tvt.cfm
 
 #### AAA Gas Prices (Web Scrape)
-AAA provides average gas prices for Regular, Mid-Grade, Premium, and Diesel.  Average price data can be collected by current, yesterday, week ago, month ago, and year ago dates.
+AAA provides average gas prices for Regular, Mid-Grade, Premium, and Diesel.  Average price data can be collected by current, yesterday, week ago, month ago, and year ago dates./n
 https://gasprices.aaa.com/
 
 #### U.S. Energy Information Administration (API)
 
 
-##Transform:
+## Transform:
 
 #### Tools: Jupyter Notebooks, Python, APIs, Splinter, ChromeDriver
     
