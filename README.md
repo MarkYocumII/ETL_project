@@ -47,9 +47,9 @@ EIA:  There are two separate API calls; the first one calls the series id's for 
 This database is utilizing a relational database.  All the information provided can be linked by state.  An empty database was created in MySQL workbench
 Using SQLAlchemy, each set of data was loaded into SQL as it's own individual table.
 
-Schema for the database:
-*gasprices (retail gasoline prices)
-*cons (consumption)
+#### Schema for the database: <br />
+*gasprices (retail gasoline prices)<br />
+*cons (consumption)<br />
 *vmt (vehicle miles travelled)
 
 
