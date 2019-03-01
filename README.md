@@ -20,6 +20,10 @@ https://gasprices.aaa.com/
 
 #### U.S. Energy Information Administration (API)
 
+The EIA provides monthly and annual state-level petroleum consumption data through their API.  In this case we analyzed gasoline specifically. <br />
+https://www.eia.gov/opendata/qb.php?category=404254
+
+
 
 ## Transform:
 
@@ -32,7 +36,9 @@ The state names and abbreviations were found as a combination of state name and 
 
 AAA information was web-scraped by state.  The abbreviations were collected by web-scraping the website stated above.  After a list of state names was collected, it was looped and appended to the url by state to see the gas prices for each state. Both the state names/abbreviations and the web-scrape data can be found in this [Jupyter Notebook](https://github.com/MarkYocumII/ETL_project/blob/master/Gas%20Price%20Scrape.ipynb).
 
-EIA 
+EIA:  There are two separate API calls; the first one calls the series id's for each state for gasoline consumption, the second API call uses the series ID to pull the actual monthly and annual consumption data at the state level.  We reduced the data set for all months in 2016 and later, and removed annual data to retain monthly data only.  
+[Jupyter Notebook](https://github.com/MarkYocumII/ETL_project/blob/master/EIA_Test_Data.ipynb)
+
 
 ## Load:
 
@@ -42,11 +48,11 @@ This database is utilizing a relational database.  All the information provided 
 Using SQLAlchemy, each set of data was loaded into SQL as it's own individual table.
 
 Schema for the database:
-*gasprices
-*cons
-*vmt
+*gasprices (retail gasoline prices)
+*cons (consumption)
+*vmt (vehicle miles travelled)
 
 
 ## Hypothetical use of database:
 
-This database can be used to...
+This database can be used to identify trends and relationships at the state level between gasoline consumption, gasoline prices, and how many miles were driven.  These are the principle components of gasoline demand forecasting, and ideally the database could be expanded by adding more demographic and socioeconomic data.
