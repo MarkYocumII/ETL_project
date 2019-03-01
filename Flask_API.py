@@ -15,7 +15,7 @@ dbuser = 'root'
 dbpassword = 'ro-Cha7t'
 dbhost = 'localhost'
 dbport = '3306'
-dbname= 'ETL_db'
+dbname= 'etl_db'
 
 engine = create_engine(f"mysql://{dbuser}:{dbpassword}@{dbhost}:{dbport}/{dbname}")
 
@@ -25,10 +25,11 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-Consumption = Base.classes.cons
-GasPrices = Base.classes.gasprices
-States = Base.classes.states
-VMT = Base.classes.vmt
+
+
+# GasPrices = Base.classes.gasprices
+# States = Base.classes.states
+# VMT = Base.classes.vmt
 
 
 session=Session(engine)
@@ -53,20 +54,36 @@ def welcome():
 def consumption():
     """Return all state consumption data"""
     # Query all consumption data by state
-    results = session.query(Consumption).all()
+    Consumption = engine.execute("SELECT * FROM cons").fetchall()
+    
+    return jsonify({'Consumption': [dict(row) for row in Consumption]})
 
-    # Create a dictionary from the row data and append to a list of all_passengers
-    all_cons = list(np.ravel(results))
+@app.route("/api/v1.0/gasprices")
+def gasprices():
+    """Return all state gas price data"""
+    # Query all gas price data by state
+    Gasprices = engine.execute("SELECT * FROM gasprices").fetchall()
+    
+    return jsonify({'Gasprices': [dict(row) for row in Gasprices]})
 
-    return jsonify(all_cons)
+@app.route("/api/v1.0/states")
+def states():
+    """Return all state abbreviation data"""
+    # Query all abbreviations by state
+    States = engine.execute("SELECT * FROM states").fetchall()
+    
+    return jsonify({'States': [dict(row) for row in States]})
 
-# @app.route("/api/v1.0/gasprices")
-# def gasprices():
-#    """Return all state vmt data"""
-#     # Query all vmt data by state
-#     results_gasprices = session.query(GasPrices).all()
+@app.route("/api/v1.0/vmt")
+def vmt():
+    """Return all vehicle miles traveled data by state"""
+    # Query all vmt data by state
+    VMT = engine.execute("SELECT * FROM vmt").fetchall()
+    
+    return jsonify({'VMT': [dict(row) for row in VMT]})
 
-#     # Create a dictionary from the row data and append to a list of all_passengers
-#     all_vmt = list(np.ravel(results_gasprices))
 
-#     return jsonify(all_vmt)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
