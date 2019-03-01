@@ -1,5 +1,6 @@
-## ETL_project
-Mark Yocum and Hubert Cheng ETL Project
+## ETL Project Team Members
+Mark Yocum<br />
+Hubert Cheng
 
 ## Extract:
 
