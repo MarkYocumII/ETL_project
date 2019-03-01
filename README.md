@@ -1,10 +1,5 @@
-## ETL_project - Gas Prices, Gas Consumption, Traffic Volume
+## ETL_project
 Mark Yocum and Hubert Cheng ETL Project
-
-## Statement for use of database:
-
-This database can be used to...
-
 
 ## Extract:
 
@@ -30,7 +25,7 @@ https://gasprices.aaa.com/
 #### Tools: Jupyter Notebooks, Python, APIs, Splinter, ChromeDriver
     
 The FHWA .csv files were downloaded through a loop in python.  Each file was extracted from the website and fed into a pandas dataframe where it could be 
-formatted.  Information not pertaining to a state was dropped as well as any columns that were null.  Please see this [Jupyter Notebook](https://github.com/MarkYocumII/ETL_project/blob/master/State_vmt.ipynb)
+formatted.  Information not pertaining to a state was dropped as well as any columns that were null.  Please see this [Jupyter Notebook](https://github.com/MarkYocumII/ETL_project/blob/master/State_vmt.ipynb).
 
 The state names and abbreviations were found as a combination of state name and abbreviation.  This was seperated by "-" which was then made into lists for a pandas dataframe.
 
@@ -45,3 +40,12 @@ EIA
 This database is utilizing a relational database.  All the information provided can be linked by state.  An empty database was created in MySQL workbench
 Using SQLAlchemy, each set of data was loaded into SQL as it's own individual table.
 
+Schema for the database:
+*gasprices
+*cons
+*vmt
+
+
+## Hypothetical use of database:
+
+This database can be used to...
